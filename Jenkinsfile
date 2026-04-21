@@ -26,8 +26,9 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                    . .venv/bin/activate
-                    pytest -v
+                . .venv/bin/activate
+                export PYTHONPATH=$PWD
+                pytest -v
                 '''
             }
         }
